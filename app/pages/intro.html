@@ -34,11 +34,11 @@
 						<td>{{ contact.name }}</td>
 						<td>{{ contact.email }}</td>
 						<td>{{ contact.phone }}</td>
-						<td> <a href="javascript:void(0)" ng-click="edit(contact.id)">edit</a> <!-- | <a href="javascript:void(0)" ng-click="duplicate(contact.id)">dupe</a> --> | <a href="javascript:void(0)" ng-click="delete(contact.id)">delete</a>
+						<td> <a href="javascript:void(0)" ng-click="edit(contact.id)"><i class="fa fa-pencil fa-lg success"></i></a><!--<a href="javascript:void(0)" ng-click="duplicate(contact.id)">dupe</a> --> &nbsp;<a href="javascript:void(0)" ng-click="delete(contact.id)"><i class="fa fa-trash fa-lg error"></i></a>
 
 						</td>
 					</tr>
-					<p ng-show="!contacts.length" class="error">Clear cache to see list. [command + shift + R]</p>
+					<p ng-show="!contacts.length" class="error">Create jobs or Clear cache to see list. [command + shift + R]</p>
 				</tbody>
 			</table>
 		</div>
