@@ -159,13 +159,11 @@ dbless.controller('mainController', function ($scope, mainController) {
 		$scope.newcontact = {};
 	}
 
-
 	$scope.delete = function (id) {
 
 		mainController.delete(id);
 		if ($scope.newcontact.id == id) $scope.newcontact = {};
 	}
-
 
 	$scope.edit = function (id) {
 		$scope.newcontact = angular.copy(mainController.get(id));
