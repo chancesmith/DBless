@@ -8,8 +8,11 @@ p {
 h1, h2, h3, h4, h5, h6 {
   font: 100% "Passion One", cursive; }
 
-h2 {
+h1 {
   font-size: 4em; }
+
+h2 {
+  font-size: 2.5em; }
 
 .center {
   margin: 0 auto; }
@@ -117,6 +120,6 @@ body {
 ///Medium Screens
 ********************/
   #logo {
-    width: 150px; }
+    width: 136px; }
   .headphones {
     height: inherit; } }

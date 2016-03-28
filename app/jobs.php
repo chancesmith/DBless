@@ -24,12 +24,16 @@ $jobs = json_decode( $fileJSON, true );
 <body>
 	<div class="container">
 		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<h1>List of Available Jobs:</h1>
+				<a href="./#/">edit jobs</a>
+			</div>
 		<?php foreach($jobs as $job) { //foreach element in job list ?>
 			<div class="col-md-8 col-md-offset-2">
 				<h2><?php echo $job['name']; ?></h2>
 				<p>Responsibilities: <?php echo $job['email']; ?></p>
 				<p>Description: <?php echo $job['phone']; ?></p>
-				<hr>
+				<hr/>
 			</div>
 		<?php } ?>
 		</div>
