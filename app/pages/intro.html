@@ -1,0 +1,45 @@
+<div id="intro" class="container top">
+	<div class="row">
+		<div class="col-md-6">
+			<form class="well">
+				<div class="form-group">
+					<label>Title</label>
+					<input type="text" class="form-control" name="name" ng-model="newcontact.name" />
+				</div>
+				<div class="form-group">
+					<label>Responsibilities</label>
+					<input type="text" class="form-control" name="email" ng-model="newcontact.email" />
+				</div>
+				<div class="form-group">
+					<label>Description</label>
+					<input type="text" class="form-control" name="phone" ng-model="newcontact.phone" />
+				</div>
+				<br/>
+				<input type="hidden" ng-model="newcontact.id" />
+				<input type="button" value="Save" ng-click="saveContact()" class="btn btn-primary" />
+			</form>
+		</div>
+		<div class="col-md-6 content-block">
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Responsibilities</th>
+						<th>Description</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="contact in contacts">
+						<td>{{ contact.name }}</td>
+						<td>{{ contact.email }}</td>
+						<td>{{ contact.phone }}</td>
+						<td> <a href="javascript:void(0)" ng-click="edit(contact.id)">edit</a> | <a href="javascript:void(0)" ng-click="delete(contact.id)">delete</a>
+
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

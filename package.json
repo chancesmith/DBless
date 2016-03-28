@@ -1,0 +1,32 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "new static site",
+  "main": "index.html",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "",
+    "url": "staypro"
+  },
+  "keywords": [
+    "gulp",
+    "scss",
+    "js",
+    "images"
+  ],
+  "author": "Joe Richardson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dope/gulp-starter/issues"
+  },
+  "homepage": "https://github.com/dope/gulp-starter",
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.2.0",
+    "path": "^0.12.7"
+  }
+}
