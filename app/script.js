@@ -12,13 +12,30 @@ dbless.config(function($routeProvider) {
 		});
 	});
 
+//create UUID
+function generateUUID(){
+    var d = new Date().getTime();
+    if(window.performance && typeof window.performance.now === "function"){
+        d += performance.now(); //use high-precision timer if available
+    }
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = (d + Math.random()*16)%16 | 0;
+        d = Math.floor(d/16);
+        return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+    });
+    return uuid;
+}
+
 dbless.service('mainController', function ($http) {
     //to create unique contact id
-    var uid = 1;
     var contacts = '';
+    var uid = 0;
     $http.get('jobs.json').success(function(data) {
     	contacts = data;
+        uid = contacts.length; // zero base start
+        if(uid < 0) uid = 0;
     });
+    
     // contacts array to hold list of all contacts
     // var contacts = [
 	   //  {
@@ -40,7 +57,7 @@ dbless.service('mainController', function ($http) {
     this.save = function (contact) {
     	if (contact.id == null) {
             //if this is new contact, add it in contacts array
-            contact.id = uid++;
+            contact.id = generateUUID();
             contacts.push(contact);
             console.log('New contact');
         } else {
@@ -53,21 +70,20 @@ dbless.service('mainController', function ($http) {
             	}
             }
         }
-        var jsonData = JSON.stringify(contacts);
+        // var jsonData = JSON.stringify(contacts);
         $http({
-            type: 'POST',
-            url: 'update-json.php',
-            data: {myData:contacts}
-        })
-        .then(function successCallback(response) {
+          method: 'POST',
+          url: 'update-json.php',
+          data: contacts
+        }).then(function successCallback(response) {
             // this callback will be called asynchronously
             // when the response is available
-            console.log('Data saved: ' + response.data);
+            console.log(response);
           }, function errorCallback(response) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
-            console.log('No, not saved: ' + response.data);
-        });
+            console.log(response);
+          });
     }
 
     //simply search contacts list for given id
@@ -89,6 +105,48 @@ dbless.service('mainController', function ($http) {
     			contacts.splice(i, 1);
     		}
     	}
+        $http({
+          method: 'POST',
+          url: 'update-json.php',
+          data: contacts
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            console.log(response);
+          }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+            console.log(response);
+          });
+    }
+
+    //iterate through contacts list and duplicate 
+    //contact if found
+    this.duplicate = function (id) {
+        var cloneContact = '';
+        for (i in contacts) {
+            if (contacts[i].id == id) {
+                cloneContact = contacts[i];
+                console.log(cloneContact);
+                cloneContact.id = generateUUID();
+                contacts.push(cloneContact);
+                console.log(cloneContact);
+                console.log('Contact Duplicated');
+            }
+        }
+        $http({
+          method: 'POST',
+          url: 'update-json.php',
+          data: contacts
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            console.log(response);
+          }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+            console.log(response);
+          });
     }
 
     //simply returns the contacts list
@@ -117,4 +175,8 @@ dbless.controller('mainController', function ($scope, mainController) {
 	$scope.edit = function (id) {
 		$scope.newcontact = angular.copy(mainController.get(id));
 	}
+
+    $scope.duplicate = function (id) {
+        $scope.newcontact = angular.copy(mainController.duplicate(id));
+    }
 })
