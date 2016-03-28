@@ -4,13 +4,12 @@ var dbless = angular.module('dbless', ['ngRoute']);
 // configure our routes
 dbless.config(function($routeProvider) {
 	$routeProvider
-
 		// route for the home page
 		.when('/', {
 			templateUrl : 'pages/intro.html',
 			controller  : 'mainController'
 		});
-	});
+});
 
 //create UUID
 function generateUUID(){
@@ -27,13 +26,9 @@ function generateUUID(){
 }
 
 dbless.service('mainController', function ($http) {
-    //to create unique contact id
     var contacts = '';
-    var uid = 0;
     $http.get('jobs.json').success(function(data) {
-    	contacts = data;
-        uid = contacts.length; // zero base start
-        if(uid < 0) uid = 0;
+        contacts = data;
     });
     
     // contacts array to hold list of all contacts
@@ -151,7 +146,7 @@ dbless.service('mainController', function ($http) {
 
     //simply returns the contacts list
     this.list = function () {
-    	return contacts;
+        return contacts;
     }
 });
 
