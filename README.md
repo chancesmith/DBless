@@ -10,3 +10,4 @@ Using Angular and PHP.
 https://github.com/marceljuenemann/angular-drag-and-drop-lists
 - add undo button
 - fix haing to hard-refresh to show contacts
+- animate in/out a delete/edit/add of the jobs
