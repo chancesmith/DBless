@@ -11,3 +11,4 @@ https://github.com/marceljuenemann/angular-drag-and-drop-lists
 - add undo button
 - fix haing to hard-refresh to show contacts
 - animate in/out a delete/edit/add of the jobs
+- upload images to server and show thumbnail in entry (maybe flow.js)
