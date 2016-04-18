@@ -6,6 +6,7 @@ Using Angular and PHP.
 
 
 ##Todo:
+- show order number of posts
 - add drap and drop to change order of JSON
 https://github.com/marceljuenemann/angular-drag-and-drop-lists
 - add undo button
