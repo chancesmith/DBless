@@ -1,6 +1,7 @@
 <div id="intro" class="container top">
 	<div class="row">
 		<div class="col-md-6">
+			<h2>Create/Edit Job</h2>
 			<form class="well" ng-submit="saveJob()">
 				<div class="form-group">
 					<label>Title*</label>
@@ -12,7 +13,7 @@
 				</div>
 				<div class="form-group">
 					<label>Description</label>
-					<input type="text" class="form-control" name="phone" ng-model="newjob.phone" />
+					<textarea class="form-control" name="phone" ng-model="newjob.phone"></textarea>
 				</div>
 				<br/>
 				<input type="hidden" ng-model="newjob.id" />
