@@ -1,22 +1,22 @@
 <div id="intro" class="container top">
 	<div class="row">
 		<div class="col-md-6">
-			<form class="well" ng-submit="saveContact()">
+			<form class="well" ng-submit="saveJob()">
 				<div class="form-group">
 					<label>Title*</label>
-					<input type="text" class="form-control" name="name" ng-model="newcontact.name" required/>
+					<input type="text" class="form-control" name="name" ng-model="newjob.name" required/>
 				</div>
 				<div class="form-group">
 					<label>Responsibilities</label>
-					<input type="text" class="form-control" name="email" ng-model="newcontact.email" />
+					<input type="text" class="form-control" name="email" ng-model="newjob.email" />
 				</div>
 				<div class="form-group">
 					<label>Description</label>
-					<input type="text" class="form-control" name="phone" ng-model="newcontact.phone" />
+					<input type="text" class="form-control" name="phone" ng-model="newjob.phone" />
 				</div>
 				<br/>
-				<input type="hidden" ng-model="newcontact.id" />
-				<input type="button" value="Save" ng-click="saveContact()" class="btn btn-primary" />
+				<input type="hidden" ng-model="newjob.id" />
+				<input type="button" value="Save" ng-click="saveJob()" class="btn btn-primary" />
 				<input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
 			</form>
 		</div>
@@ -31,15 +31,15 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-hide="!contacts.length" ng-repeat="contact in contacts">
-						<td>{{ contact.name }}</td>
-						<td>{{ contact.email }}</td>
-						<td>{{ contact.phone }}</td>
-						<td> <a href="javascript:void(0)" ng-click="edit(contact.id)"><i class="fa fa-pencil fa-lg success"></i></a><!--<a href="javascript:void(0)" ng-click="duplicate(contact.id)">dupe</a> --> &nbsp;<a href="javascript:void(0)" ng-click="delete(contact.id)"><i class="fa fa-trash fa-lg error"></i></a>
+					<tr ng-hide="!jobs.length" ng-repeat="job in jobs">
+						<td>{{ job.name }}</td>
+						<td>{{ job.email }}</td>
+						<td>{{ job.phone }}</td>
+						<td> <a href="javascript:void(0)" ng-click="edit(job.id)"><i class="fa fa-pencil fa-lg success"></i></a><!--<a href="javascript:void(0)" ng-click="duplicate(job.id)">dupe</a> --> &nbsp;<a href="javascript:void(0)" ng-click="delete(job.id)"><i class="fa fa-trash fa-lg error"></i></a>
 
 						</td>
 					</tr>
-					<p ng-show="!contacts.length" class="error">Create jobs or Clear cache to see list. [command + shift + R]</p>
+					<p ng-show="!jobs.length" class="error">Create jobs or Clear cache to see list. [command + shift + R]</p>
 				</tbody>
 			</table>
 		</div>

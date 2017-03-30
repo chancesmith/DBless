@@ -10,5 +10,11 @@
     "name":"Master of Disaster",
     "email":"Helps federal, state, and local authorities access the information they need to recover quickly from calamities.",
     "phone":"As MoD, you will be..."
+  },
+  {
+    "id":2,
+    "name":"Master of Awesome",
+    "email":"Helps other be awesome.",
+    "phone":"As MoA, you will be..."
   }
 ]
