@@ -1,0 +1,29 @@
+{
+  "name": "dbless",
+  "description": "DBless - job board example",
+  "main": "app/index.html",
+  "authors": [
+    "Chance Smith"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "gulp",
+    "scss",
+    "js",
+    "images"
+  ],
+  "homepage": "https://github.com/chancesmith/DBless",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular-ui": "^0.4.0",
+    "jquery": "^3.2.1",
+    "jquery-ui": "^1.12.1"
+  }
+}

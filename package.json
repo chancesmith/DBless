@@ -1,14 +1,14 @@
 {
-  "name": "test",
+  "name": "dbless",
   "version": "1.0.0",
-  "description": "new static site",
-  "main": "index.html",
+  "description": "DBless - job board example",
+  "main": "app/index.html",
   "scripts": {
     "test": ""
   },
   "repository": {
     "type": "",
-    "url": "staypro"
+    "url": ""
   },
   "keywords": [
     "gulp",
@@ -16,7 +16,7 @@
     "js",
     "images"
   ],
-  "author": "Joe Richardson",
+  "author": "Chance Smith",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dope/gulp-starter/issues"

@@ -1,5 +1,5 @@
 // create the module and name it headphonesApp
-var dbless = angular.module('dbless', ['ngRoute']);
+var dbless = angular.module('dbless', ['ngRoute','ui.sortable']);
 
 // configure our routes
 dbless.config(function($routeProvider) {
