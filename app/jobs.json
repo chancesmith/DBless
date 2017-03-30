@@ -1,20 +1,14 @@
 [
-    {
-        "id": 0,
-        "name": "Director, Ethical Hacking",
-        "email": "Helps financial institutions identify the vulnerabilities of their Web applications and networks",
-        "phone": "As DEH, you will be..."
-    },
-    {
-        "id": 1,
-        "name": "Master of Disaster",
-        "email": "Helps federal, state, and local authorities access the information they need to recover quickly from calamities.",
-        "phone": "As MoD, you will be..."
-    },
-    {
-        "id": 2,
-        "name": "Master of Awesome",
-        "email": "Helps other be awesome.",
-        "phone": "As MoA, you will be..."
-    }
+  {
+    "id":0,
+    "name":"Director, Ethical Hacking",
+    "email":"Helps financial institutions identify the vulnerabilities of their Web applications and networks",
+    "phone":"As DEH, you will be..."
+  },
+  {
+    "id":1,
+    "name":"Master of Disaster",
+    "email":"Helps federal, state, and local authorities access the information they need to recover quickly from calamities.",
+    "phone":"As MoD, you will be..."
+  }
 ]

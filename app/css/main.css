@@ -1,4 +1,4 @@
-/* Stay Productive Headphones Survey */
+/* DBless styles */
 /*******************
 ///Basics
 ********************/
@@ -129,3 +129,8 @@ body {
     text-align: center; }
   .headphones {
     height: inherit; } }
+
+@media (min-width: 1170px) {
+  /*******************
+///Large Screens
+********************/ }
