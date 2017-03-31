@@ -5,12 +5,10 @@
     "description":"As MoA, you will be...",
     "location":"Jackson, TN",
     "summary":"This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company.",
-    "benefits":[
-      "$150k/yr",
-      "full health and dental",
-      "4 weeks vacay"
-    ],
-    "slug":"master-of-awesome"
+    "benefits":"$150k/yr\nfull health and dental\n4 weeks vacay",
+    "slug":"master-of-awesome-jackson-tn-2017-2",
+    "updated_at":"2017-03-31T20:21:08.783Z",
+    "created_at":"2017-03-31T20:17:26.350Z"
   },
   {
     "id":2,
@@ -23,7 +21,9 @@
       "full health and dental",
       "4 weeks vacay"
     ],
-    "slug":"director-of-ethical-hacking"
+    "slug":"director-of-ethical-hacking-jackson-tn-2017-2",
+    "updated_at":"2017-03-31T20:23:13.792Z",
+    "created_at":"2017-03-31T20:17:26.350Z"
   },
   {
     "title":"Leader of Taste Testing",
@@ -36,7 +36,9 @@
       "4 weeks vacay"
     ],
     "id":"dfe9738f-a456-44d7-9110-32f8774b8c47",
-    "slug":"leader-of-taste-testing"
+    "slug":"leader-of-taste-testing-jackson-tn-2017-2",
+    "updated_at":"2017-03-31T20:23:15.805Z",
+    "created_at":"2017-03-31T20:17:26.350Z"
   },
   {
     "id":1,
@@ -49,6 +51,23 @@
       "full health and dental",
       "4 weeks vacay"
     ],
-    "slug":"master-of-disaster"
+    "slug":"master-of-disaster-jackson-tn-2017-2",
+    "updated_at":"2017-03-31T20:23:17.963Z",
+    "created_at":"2017-03-31T20:17:26.350Z"
+  },
+  {
+    "title":"test this",
+    "slug":"test-this-undefined-2017-2",
+    "updated_at":"2017-03-31T20:23:19.745Z",
+    "id":"9edcdd3c-18c3-4e56-8938-2fe00a9687a3",
+    "created_at":"2017-03-31T20:17:26.350Z"
+  },
+  {
+    "title":"next test",
+    "slug":"next-test-asdf-2017-2",
+    "updated_at":"2017-03-31T20:23:21.526Z",
+    "id":"7c80ff05-1db3-4c9b-9c80-f84720cfac2c",
+    "created_at":"2017-03-31T20:17:26.350Z",
+    "location":"asdf"
   }
 ]

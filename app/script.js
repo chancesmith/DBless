@@ -30,13 +30,14 @@ function generateUUID(){
 }
 // slugify text
 // source: https://gist.github.com/mathewbyrne/1280286
-function slugify(text){
-  return text.toString().toLowerCase()
-    .replace(/\s+/g, '-')           // Replace spaces with -
-    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
-    .replace(/^-+/, '')             // Trim - from start of text
-    .replace(/-+$/, '');            // Trim - from end of text
+function slugify(text, location, date){
+    text = text + " " + location + " " + date.getFullYear() + " " + date.getMonth();
+    return text.toString().toLowerCase()
+        .replace(/\s+/g, '-')           // Replace spaces with -
+        .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+        .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+        .replace(/^-+/, '')             // Trim - from start of text
+        .replace(/-+$/, '');            // Trim - from end of text
 }
 
 /////
@@ -112,13 +113,30 @@ dbless.service('mainController', function ($http) {
     // save method create a new job if not already exists
     // else update the existing object
     this.save = function (job) {
+        var date = new Date();
+        var unixTime = date.getTime();
+        var slugDate = new Date();
+
+        ////
+        // default data variables
+        ////
         // turn benefits list into array (newlines into array)
         job.benefits = changeNewlinesStringToArray(job.benefits);
-        // update slug
-        job.slug = slugify(job.title);
+        // add/update slug
+        job.slug = slugify(job.title, job.location, slugDate);
+        // add/update updated_at
+        job.updated_at = date;
+        
+        ////
+        // if new or existing
+        ////
     	if (job.id == null) {
             // if this is new job, add it in jobs array
+            // give it an ID
             job.id = generateUUID();
+            // add created_at timestamp            
+            job.created_at = date;
+            // add job to list
             jobs.push(job);
         } else {
             // for existing job, find this job using id
