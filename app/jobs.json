@@ -3,36 +3,52 @@
     "id":0,
     "title":"Master of Awesome",
     "description":"As MoA, you will be...",
-    "slug":"master-of-awesome",
     "location":"Jackson, TN",
-    "summary":"This company is in SUCH industry and is a Forbes 500 company.",
+    "summary":"This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company.",
     "benefits":[
       "$150k/yr",
       "full health and dental",
       "4 weeks vacay"
-    ]
+    ],
+    "slug":"master-of-awesome"
   },
   {
     "id":2,
-    "title":"Director, Ethical Hacking",
-    "description":"As DEH, you will be...",
-    "slug":"director-ethical-hacking"
+    "title":"Director of Ethical Hacking",
+    "description":"As MoA, you will be...",
+    "location":"Jackson, TN",
+    "summary":"This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company.",
+    "benefits":[
+      "$150k/yr",
+      "full health and dental",
+      "4 weeks vacay"
+    ],
+    "slug":"director-of-ethical-hacking"
   },
   {
-    "title":"test this Sweet title",
-    "description":"teststes",
+    "title":"Leader of Taste Testing",
+    "description":"As MoA, you will be...",
+    "location":"Jackson, TN",
+    "summary":"This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company.",
+    "benefits":[
+      "$150k/yr",
+      "full health and dental",
+      "4 weeks vacay"
+    ],
     "id":"dfe9738f-a456-44d7-9110-32f8774b8c47",
-    "slug":"test-this-sweet-title"
+    "slug":"leader-of-taste-testing"
   },
   {
     "id":1,
     "title":"Master of Disaster",
-    "description":"As MoD, you will be...",
+    "description":"As MoA, you will be...",
+    "location":"Jackson, TN",
+    "summary":"This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company.",
+    "benefits":[
+      "$150k/yr",
+      "full health and dental",
+      "4 weeks vacay"
+    ],
     "slug":"master-of-disaster"
-  },
-  {
-    "title":"test",
-    "slug":"test",
-    "id":"bdc77eb8-d085-404c-afa3-bd6e1e0d5996"
   }
 ]
