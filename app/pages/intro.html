@@ -4,7 +4,7 @@
 			<h2>Create/Edit Job</h2>
 			<form class="well" ng-submit="saveJob()">
 				<div class="form-group">
-					<label>Title*</label>
+					<label>Position Title*</label>
 					<input type="text" class="form-control" name="title" ng-model="newjob.title" required/>
 				</div>
 				<div class="form-group">
@@ -25,17 +25,13 @@
 			<table class="table table-striped table-bordered">
 				<thead>
 					<tr>
-						<th>Title</th>
-						<th>Responsibilities</th>
-						<th>Description</th>
+						<th>Position Title</th>
 						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody ui-sortable="{ 'ui-floating': true,'update': updateOrder() }" ng-model="jobs">
 					<tr ng-hide="!jobs.length" ng-repeat="job in jobs" class="item" style="cursor: move;">
 						<td>{{ job.title }}</td>
-						<td>{{ job.responsibilities }}</td>
-						<td>{{ job.description }}</td>
 						<td> <a href="javascript:void(0)" ng-click="edit(job.id)"><i class="fa fa-pencil fa-lg success"></i></a><!--<a href="javascript:void(0)" ng-click="duplicate(job.id)">dupe</a> --> &nbsp;<a href="javascript:void(0)" ng-click="delete(job.id)"><i class="fa fa-trash fa-lg error"></i></a>
 
 						</td>

@@ -48,8 +48,8 @@ $errors = array();
 
 				<?php if (!$singleJobFound && $singleJobListing == true): ?>
 					<?php array_push($errors, "single post not found"); ?>
-					<h2>Sorry, we couldn't find this job, <br/>"<?php echo $_GET['job']; ?>"</h2>
-					<p><a href="/jobs/" class="btn btn-default">Go view all jobs</a></p>
+					<!-- <h2>Sorry, we couldn't find this job, <br/>"<?php echo $_GET['job']; ?>"</h2> -->
+					<!-- <p><a href="/jobs/" class="btn btn-default">Go view all jobs</a></p> -->
 				<?php endif ?>
 
 				<?php if (count($errors) == 0 && $singleJobListing == false): ?>
