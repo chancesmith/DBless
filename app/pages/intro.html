@@ -31,7 +31,7 @@
 						<th>Action</th>
 					</tr>
 				</thead>
-				<tbody ui-sortable="{ 'ui-floating': true }" ng-model="jobs">
+				<tbody ui-sortable="{ 'ui-floating': true,'update': updateOrder() }" ng-model="jobs">
 					<tr ng-hide="!jobs.length" ng-repeat="job in jobs" class="item" style="cursor: move;">
 						<td>{{ job.name }}</td>
 						<td>{{ job.email }}</td>

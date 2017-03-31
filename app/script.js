@@ -1,5 +1,6 @@
-// create the module and name it headphonesApp
+// create the module and name it dbless
 var dbless = angular.module('dbless', ['ngRoute','ui.sortable']);
+var lastUpdate = new Date().getTime();
 
 // configure our routes
 dbless.config(function($routeProvider) {
@@ -27,6 +28,24 @@ function generateUUID(){
 
 dbless.service('mainController', function ($http) {
     var jobs = '';
+    
+    // update JSON file
+    function updateJobsJSONFile(jobsJSON){
+        $http({
+          method: 'POST',
+          url: 'update-json.php',
+          data: jobs
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            // console.log(response);
+          }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+            // console.log(response);
+          });
+    }
+
     $http.get('jobs.json').success(function(data) {
         jobs = data;
     });
@@ -53,12 +72,13 @@ dbless.service('mainController', function ($http) {
     	if (job.id == null) {
             //if this is new job, add it in jobs array
             job.id = generateUUID();
+            job.order = 0;
             jobs.push(job);
-            console.log('New job');
+            // console.log('New job');
         } else {
             //for existing job, find this job using id
             //and update it.
-            console.log('Existing job');
+            // console.log('Existing job');
             for (i in jobs) {
             	if (jobs[i].id == job.id) {
             		jobs[i] = job;
@@ -66,19 +86,7 @@ dbless.service('mainController', function ($http) {
             }
         }
         // var jsonData = JSON.stringify(jobs);
-        $http({
-          method: 'POST',
-          url: 'update-json.php',
-          data: jobs
-        }).then(function successCallback(response) {
-            // this callback will be called asynchronously
-            // when the response is available
-            console.log(response);
-          }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-            console.log(response);
-          });
+        updateJobsJSONFile(jobs);
     }
 
     //simply search jobs list for given id
@@ -89,7 +97,6 @@ dbless.service('mainController', function ($http) {
     			return jobs[i];
     		}
     	}
-
     }
     
     //iterate through jobs list and delete 
@@ -100,19 +107,7 @@ dbless.service('mainController', function ($http) {
     			jobs.splice(i, 1);
     		}
     	}
-        $http({
-          method: 'POST',
-          url: 'update-json.php',
-          data: jobs
-        }).then(function successCallback(response) {
-            // this callback will be called asynchronously
-            // when the response is available
-            console.log(response);
-          }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-            console.log(response);
-          });
+        updateJobsJSONFile(jobs);
     }
 
     //iterate through jobs list and duplicate 
@@ -122,26 +117,27 @@ dbless.service('mainController', function ($http) {
         for (i in jobs) {
             if (jobs[i].id == id) {
                 cloneJob = jobs[i];
-                console.log(cloneJob);
+                // console.log(cloneJob);
                 cloneJob.id = generateUUID();
                 jobs.push(cloneJob);
-                console.log(cloneJob);
-                console.log('Job Duplicated');
+                // console.log(cloneJob);
+                // console.log('Job Duplicated');
             }
         }
-        $http({
-          method: 'POST',
-          url: 'update-json.php',
-          data: jobs
-        }).then(function successCallback(response) {
-            // this callback will be called asynchronously
-            // when the response is available
-            console.log(response);
-          }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-            console.log(response);
-          });
+        updateJobsJSONFile(jobs);
+    }
+
+    //update order of list
+    this.order = function (jobsList) {
+        var d = new Date();
+        var unixTime = d.getTime();
+        var secondsSinceLastUpdate = Math.round((unixTime - lastUpdate)*.001);
+        // check it is has been greater than 5 seconds since last update
+        if (secondsSinceLastUpdate > 2){
+            updateJobsJSONFile(jobsList);
+            // update time of last change
+            lastUpdate = unixTime;
+        }
     }
 
     //simply returns the jobs list
@@ -160,7 +156,6 @@ dbless.controller('mainController', function ($scope, mainController) {
 	}
 
 	$scope.delete = function (id) {
-
 		mainController.delete(id);
 		if ($scope.newjob.id == id) $scope.newjob = {};
 	}
@@ -171,5 +166,9 @@ dbless.controller('mainController', function ($scope, mainController) {
 
     $scope.duplicate = function (id) {
         $scope.newjob = angular.copy(mainController.duplicate(id));
+    }
+
+    $scope.updateOrder = function (){
+        mainController.order($scope.jobs);
     }
 })

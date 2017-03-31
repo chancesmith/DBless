@@ -7,8 +7,7 @@ Using Angular and PHP.
 
 ##Todo:
 - [ ] show order number of posts
-- [ ] add drap and drop to change order of JSON
-https://github.com/angular-ui/ui-sortable
+- [ ] add drap and drop to change order of JSON [source](https://github.com/angular-ui/ui-sortable) [example](http://jsfiddle.net/SSSUUUSSS/Bsusr/1/)
 - [ ] add undo button
 - [ ] fix haing to hard-refresh to show contacts
 - [ ] animate in/out a delete/edit/add of the jobs
