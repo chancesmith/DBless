@@ -30,11 +30,10 @@ $jobs = json_decode( $fileJSON, true );
 			</div>
 		<?php if ($jobs != '' || isset($jobs)): ?>
 			<?php foreach($jobs as $job) { //foreach element in job list ?>
-				<?php foreach($jobs as $job) { //foreach element in job list ?>
 				<div class="col-md-8 col-md-offset-2">
-					<h2><?php echo $job['name']; ?></h2>
-					<p>Responsibilities: <?php echo $job['email']; ?></p>
-					<p>Description: <?php echo $job['phone']; ?></p>
+					<h2><?php echo $job['title']; ?></h2>
+					<p>Responsibilities: <?php echo $job['responsibilities']; ?></p>
+					<p>Description: <?php echo $job['description']; ?></p>
 					<hr/>
 				</div>
 			<?php } ?>
@@ -42,7 +41,7 @@ $jobs = json_decode( $fileJSON, true );
 			<div class="col-md-8 col-md-offset-2">
 				<h2>Sorry, no career opportunities are avilable at this time. Come back later to see future udpates.</h2>
 			</div>
-		<?php endif ?>
+		<?php endif; ?>
 		</div>
 	</div>
 </body>
