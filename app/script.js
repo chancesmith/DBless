@@ -26,6 +26,7 @@ function generateUUID(){
     return uuid;
 }
 // slugify text
+// source: https://gist.github.com/mathewbyrne/1280286
 function slugify(text){
   return text.toString().toLowerCase()
     .replace(/\s+/g, '-')           // Replace spaces with -
