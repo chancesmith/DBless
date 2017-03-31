@@ -1,0 +1,4 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteRule ^jobs/([^/]+) /jobs.php?job=$1 [NC]
+RewriteRule ^jobs/ /jobs.php [NC]

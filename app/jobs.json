@@ -10,18 +10,21 @@
     "id":1,
     "title":"Director, Ethical Hacking",
     "responsibilities":"Helps financial institutions identify the vulnerabilities of their Web applications and networks",
-    "description":"As DEH, you will be..."
+    "description":"As DEH, you will be...",
+    "slug":"director-ethical-hacking"
   },
   {
     "id":0,
     "title":"Master of Awesome",
     "responsibilities":"Helps other be awesome.",
-    "description":"As MoA, you will be..."
+    "description":"As MoA, you will be...",
+    "slug":"master-of-awesome"
   },
   {
     "id":1,
     "title":"Master of Disaster",
     "responsibilities":"Helps federal, state, and local authorities access the information they need to recover quickly from calamities.",
-    "description":"As MoD, you will be..."
+    "description":"As MoD, you will be...",
+    "slug":"master-of-disaster"
   }
 ]

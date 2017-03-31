@@ -1,6 +1,9 @@
 <?php 
 $fileJSON = file_get_contents("jobs.json");
 $jobs = json_decode( $fileJSON, true );
+$singleJobListing = true;
+$singleJobFound = false;
+$errors = array();
 ?>
 
 
@@ -28,21 +31,35 @@ $jobs = json_decode( $fileJSON, true );
 				<h1>List of Available Jobs:</h1>
 				<a href="./#/">edit jobs</a>
 			</div>
-		<?php if ($jobs != '' || isset($jobs)): ?>
-			<?php foreach($jobs as $job) { //foreach element in job list ?>
-				<div class="col-md-8 col-md-offset-2">
-					<h2><?php echo $job['title']; ?></h2>
-					<p>Responsibilities: <?php echo $job['responsibilities']; ?></p>
-					<p>Description: <?php echo $job['description']; ?></p>
-					<p><a href="/job.php?job=<?php echo $job['slug']; ?>" class="btn btn-default">view this job</a></p>
-					<hr/>
-				</div>
-			<?php } ?>
-		<?php else: ?>
+			
 			<div class="col-md-8 col-md-offset-2">
-				<h2>Sorry, no career opportunities are avilable at this time. Come back later to see future udpates.</h2>
+				<?php if (!isset($jobs) || $jobs == ""): ?>
+					<?php array_push($errors, "no jobs found"); ?>
+					<h2>Sorry, no career opportunities are avilable at this time. Come back later to see future udpates.</h2>
+				<?php endif; ?>
+
+				<?php if (!isset($_GET["job"]) || $_GET["job"] == "" || $_GET["job"] == null): ?>
+					<?php $singleJobListing = false; ?>
+				<?php endif; ?>
+
+				<?php if (!count($errors) && $singleJobListing == true): ?>
+					<?php include './_inc/show-job.php'; ?>
+				<?php endif; ?>
+
+				<?php if (!$singleJobFound && $singleJobListing == true): ?>
+					<?php array_push($errors, "single post not found"); ?>
+					<h2>Sorry, we couldn't find this job, <br/>"<?php echo $_GET['job']; ?>"</h2>
+					<p><a href="/jobs/" class="btn btn-default">Go view all jobs</a></p>
+				<?php endif ?>
+
+				<?php if (count($errors) == 0 && $singleJobListing == false): ?>
+					<?php include './_inc/show-all-jobs.php'; ?>
+				<?php endif; ?>
+
+				<?php if (count($errors)): ?>
+					<?php //print_r($errors); ?>
+				<?php endif; ?>
 			</div>
-		<?php endif; ?>
 		</div>
 	</div>
 </body>

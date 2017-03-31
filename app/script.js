@@ -56,8 +56,28 @@ dbless.service('mainController', function ($http) {
           });
     }
 
+    // add slug to each job entry
+    function checkSlugs(objArrayJobs){
+        var changeMade = false;
+        for (i in objArrayJobs) {
+            if (!("slug" in objArrayJobs[i])) {
+                // add slug
+                objArrayJobs[i].slug = slugify(jobs[i].title);
+                changeMade = true;
+            }
+        }
+        if (changeMade) {
+            updateJobsJSONFile(objArrayJobs);
+        };
+        return objArrayJobs;
+    }
+    
+    // collect jobs from json
     $http.get('jobs.json').success(function(data) {
         jobs = data;
+
+        // check for slugs on first boot up
+        jobs = checkSlugs(jobs);
     });
     
     // save method create a new job if not already exists
