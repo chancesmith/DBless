@@ -12,6 +12,9 @@ dbless.config(function($routeProvider) {
 		});
 });
 
+/////
+// JS for CMS data
+/////
 // create UUID
 function generateUUID(){
     var d = new Date().getTime();
@@ -35,6 +38,10 @@ function slugify(text){
     .replace(/^-+/, '')             // Trim - from start of text
     .replace(/-+$/, '');            // Trim - from end of text
 }
+
+/////
+// JS for CMS front-end
+/////
 
 dbless.service('mainController', function ($http) {
     var jobs = '';

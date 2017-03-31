@@ -21,9 +21,8 @@ body {
   min-height: 500px; }
 
 .content-block {
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 150px; }
+  padding-bottom: 150px;
+  padding-top: 27px; }
 
 .top {
   padding: 50px 0 0 0; }

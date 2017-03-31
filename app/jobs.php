@@ -29,7 +29,8 @@ $errors = array();
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<h1>List of Available Jobs:</h1>
-				<a href="./#/">edit jobs</a>
+				<a href="../#/" class="btn btn-default">Edit jobs</a>
+				<a href="../jobs/" class="btn btn-default">Go view all jobs</a>
 			</div>
 			
 			<div class="col-md-8 col-md-offset-2">
