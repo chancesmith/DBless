@@ -130,10 +130,16 @@ dbless.service('mainController', function ($http) {
     this.order = function (jobsList) {
         var d = new Date();
         var unixTime = d.getTime();
+        // minus current time and last update time
+        // convert milliseconds to seconds
+        // round up to whole seconds integer
         var secondsSinceLastUpdate = Math.round((unixTime - lastUpdate)*.001);
-        // check it is has been greater than 5 seconds since last update
-        if (secondsSinceLastUpdate > 2){
+        // check it is has been greater than 1 second since last update
+        // might not save on every change, because of fast order changing by user
+        // but might save new order on every other change of order
+        if (secondsSinceLastUpdate > 1){
             updateJobsJSONFile(jobsList);
+            console.log('order changed and saved');
             // update time of last change
             lastUpdate = unixTime;
         }
