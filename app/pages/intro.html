@@ -32,8 +32,10 @@
 				<tbody ui-sortable="{ 'ui-floating': true,'update': updateOrder() }" ng-model="jobs">
 					<tr ng-hide="!jobs.length" ng-repeat="job in jobs" class="item" style="cursor: move;">
 						<td>{{ job.title }}</td>
-						<td> <a href="javascript:void(0)" ng-click="edit(job.id)"><i class="fa fa-pencil fa-lg success"></i></a><!--<a href="javascript:void(0)" ng-click="duplicate(job.id)">dupe</a> --> &nbsp;<a href="javascript:void(0)" ng-click="delete(job.id)"><i class="fa fa-trash fa-lg error"></i></a>
-
+						<td> 
+							<a href="javascript:void(0)" ng-click="edit(job.id)"><i class="fa fa-pencil fa-lg success"></i></a> &nbsp;
+							<!--<a href="javascript:void(0)" ng-click="duplicate(job.id)">dupe</a>  &nbsp; -->
+							<a href="javascript:void(0)" ng-click="delete(job.id)"><i class="fa fa-trash fa-lg error"></i></a>
 						</td>
 					</tr>
 					<p ng-show="!jobs.length" class="error">Create jobs or Clear cache to see list. [command + shift + R]</p>
