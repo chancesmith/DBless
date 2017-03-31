@@ -12,11 +12,11 @@ dbless.config(function($routeProvider) {
 		});
 });
 
-//create UUID
+// create UUID
 function generateUUID(){
     var d = new Date().getTime();
     if(window.performance && typeof window.performance.now === "function"){
-        d += performance.now(); //use high-precision timer if available
+        d += performance.now(); // use high-precision timer if available
     }
     var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
         var r = (d + Math.random()*16)%16 | 0;
@@ -24,6 +24,15 @@ function generateUUID(){
         return (c=='x' ? r : (r&0x3|0x8)).toString(16);
     });
     return uuid;
+}
+// slugify text
+function slugify(text){
+  return text.toString().toLowerCase()
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+    .replace(/^-+/, '')             // Trim - from start of text
+    .replace(/-+$/, '');            // Trim - from end of text
 }
 
 dbless.service('mainController', function ($http) {
@@ -50,36 +59,22 @@ dbless.service('mainController', function ($http) {
         jobs = data;
     });
     
-    // jobs array to hold list of all jobs
-    // var jobs = [
-	   //  {
-	   //      id: 0,
-	   //      'name': 'Director, Ethical Hacking',
-	   //      'email': 'Helps financial institutions identify the vulnerabilities of their Web applications and networks',
-	   //      'phone': 'As DEH, you will be...'
-	   //  },
-	   //  {
-	   //      id: 1,
-	   //      'name': 'Master of Disaster',
-	   //      'email': 'Helps federal, state, and local authorities access the information they need to recover quickly from calamities.',
-	   //      'phone': 'As MoD, you will be...'
-	   //  }
-    // ];
-    
-    //save method create a new job if not already exists
-    //else update the existing object
+    // save method create a new job if not already exists
+    // else update the existing object
     this.save = function (job) {
     	if (job.id == null) {
-            //if this is new job, add it in jobs array
+            // if this is new job, add it in jobs array
             job.id = generateUUID();
+            job.slug = slugify(job.title);
             jobs.push(job);
-            // console.log('New job');
         } else {
-            //for existing job, find this job using id
-            //and update it.
-            // console.log('Existing job');
+            // for existing job, find this job using id
+            // and update it.
             for (i in jobs) {
             	if (jobs[i].id == job.id) {
+                    // update slug
+                    job.slug = slugify(job.title);
+                    // update job
             		jobs[i] = job;
             	}
             }
@@ -88,8 +83,8 @@ dbless.service('mainController', function ($http) {
         updateJobsJSONFile(jobs);
     }
 
-    //simply search jobs list for given id
-    //and returns the job object if found
+    // simply search jobs list for given id
+    // and returns the job object if found
     this.get = function (id) {
     	for (i in jobs) {
     		if (jobs[i].id == id) {
@@ -98,8 +93,8 @@ dbless.service('mainController', function ($http) {
     	}
     }
     
-    //iterate through jobs list and delete 
-    //job if found
+    // iterate through jobs list and delete 
+    // job if found
     this.delete = function (id) {
     	for (i in jobs) {
     		if (jobs[i].id == id) {
@@ -109,24 +104,21 @@ dbless.service('mainController', function ($http) {
         updateJobsJSONFile(jobs);
     }
 
-    //iterate through jobs list and duplicate 
-    //job if found
+    // iterate through jobs list and duplicate 
+    // job if found
     this.duplicate = function (id) {
         var cloneJob = '';
         for (i in jobs) {
             if (jobs[i].id == id) {
                 cloneJob = jobs[i];
-                // console.log(cloneJob);
                 cloneJob.id = generateUUID();
                 jobs.push(cloneJob);
-                // console.log(cloneJob);
-                // console.log('Job Duplicated');
             }
         }
         updateJobsJSONFile(jobs);
     }
 
-    //update order of list
+    // update order of list
     this.order = function (jobsList) {
         var d = new Date();
         var unixTime = d.getTime();
@@ -139,13 +131,12 @@ dbless.service('mainController', function ($http) {
         // but might save new order on every other change of order
         if (secondsSinceLastUpdate > 1){
             updateJobsJSONFile(jobsList);
-            console.log('order changed and saved');
             // update time of last change
             lastUpdate = unixTime;
         }
     }
 
-    //simply returns the jobs list
+    // simply returns the jobs list
     this.list = function () {
         return jobs;
     }
