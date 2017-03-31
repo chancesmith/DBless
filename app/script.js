@@ -42,7 +42,11 @@ function slugify(text){
 /////
 // JS for CMS front-end
 /////
+/// nothing here yet
 
+/////
+// app services
+/////
 dbless.service('mainController', function ($http) {
     var jobs = '';
     
@@ -78,6 +82,24 @@ dbless.service('mainController', function ($http) {
         };
         return objArrayJobs;
     }
+
+    // from JSON,
+    // change array into string with newlines for textarea box
+    function changeArrayToNewlinesString(arr){
+        if(arr === undefined){
+            return arr;
+        }
+        return arr.toString().replace(/,/g, "\n");
+    }
+
+    // from textarea box,
+    // change string, containing newlines, to array
+    function changeNewlinesStringToArray(string){
+        if(string === undefined){
+            return string;
+        }
+        return string.split(/\r\n|\r|\n/g);
+    }
     
     // collect jobs from json
     $http.get('jobs.json').success(function(data) {
@@ -90,18 +112,19 @@ dbless.service('mainController', function ($http) {
     // save method create a new job if not already exists
     // else update the existing object
     this.save = function (job) {
+        // turn benefits list into array (newlines into array)
+        job.benefits = changeNewlinesStringToArray(job.benefits);
+        // update slug
+        job.slug = slugify(job.title);
     	if (job.id == null) {
             // if this is new job, add it in jobs array
             job.id = generateUUID();
-            job.slug = slugify(job.title);
             jobs.push(job);
         } else {
             // for existing job, find this job using id
             // and update it.
             for (i in jobs) {
             	if (jobs[i].id == job.id) {
-                    // update slug
-                    job.slug = slugify(job.title);
                     // update job
             		jobs[i] = job;
             	}
@@ -116,6 +139,7 @@ dbless.service('mainController', function ($http) {
     this.get = function (id) {
     	for (i in jobs) {
     		if (jobs[i].id == id) {
+                jobs[i].benefits = changeArrayToNewlinesString(jobs[i].benefits);
     			return jobs[i];
     		}
     	}
@@ -170,6 +194,9 @@ dbless.service('mainController', function ($http) {
     }
 });
 
+/////
+// app controllers
+/////
 dbless.controller('mainController', function ($scope, mainController) {
 
 	$scope.jobs = mainController.list();

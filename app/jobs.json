@@ -2,20 +2,24 @@
   {
     "id":0,
     "title":"Master of Awesome",
-    "responsibilities":"Helps other be awesome.",
     "description":"As MoA, you will be...",
-    "slug":"master-of-awesome"
+    "slug":"master-of-awesome",
+    "location":"Jackson, TN",
+    "summary":"This company is in SUCH industry and is a Forbes 500 company.",
+    "benefits":[
+      "$150k/yr",
+      "full health and dental",
+      "4 weeks vacay"
+    ]
   },
   {
     "id":2,
     "title":"Director, Ethical Hacking",
-    "responsibilities":"Helps financial institutions identify the vulnerabilities of their Web applications and networks",
     "description":"As DEH, you will be...",
     "slug":"director-ethical-hacking"
   },
   {
     "title":"test this Sweet title",
-    "responsibilities":"test",
     "description":"teststes",
     "id":"dfe9738f-a456-44d7-9110-32f8774b8c47",
     "slug":"test-this-sweet-title"
@@ -23,8 +27,12 @@
   {
     "id":1,
     "title":"Master of Disaster",
-    "responsibilities":"Helps federal, state, and local authorities access the information they need to recover quickly from calamities.",
     "description":"As MoD, you will be...",
     "slug":"master-of-disaster"
+  },
+  {
+    "title":"test",
+    "slug":"test",
+    "id":"bdc77eb8-d085-404c-afa3-bd6e1e0d5996"
   }
 ]
