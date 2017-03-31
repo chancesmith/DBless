@@ -33,29 +33,35 @@ $errors = array();
 			</div>
 			
 			<div class="col-md-8 col-md-offset-2">
+				<?php // if jobs collection not found, show error ?>
 				<?php if (!isset($jobs) || $jobs == ""): ?>
 					<?php array_push($errors, "no jobs found"); ?>
 					<h2>Sorry, no career opportunities are avilable at this time. Come back later to see future udpates.</h2>
 				<?php endif; ?>
 
+				<?php // if single job not requested ?>
 				<?php if (!isset($_GET["job"]) || $_GET["job"] == "" || $_GET["job"] == null): ?>
 					<?php $singleJobListing = false; ?>
 				<?php endif; ?>
 
+				<?php // if no errors, show single job ?>
 				<?php if (!count($errors) && $singleJobListing == true): ?>
 					<?php include './_inc/show-job.php'; ?>
 				<?php endif; ?>
 
+				<?php // if single job not found, show 404 like error ?>
 				<?php if (!$singleJobFound && $singleJobListing == true): ?>
 					<?php array_push($errors, "single post not found"); ?>
 					<h2>Sorry, we couldn't find this job, <br/>"<?php echo $_GET['job']; ?>"</h2>
 					<p><a href="/jobs/" class="btn btn-default">Go view all jobs</a></p>
 				<?php endif ?>
 
+				<?php // if no errors, and not a single job listing, show all jobs ?>
 				<?php if (count($errors) == 0 && $singleJobListing == false): ?>
 					<?php include './_inc/show-all-jobs.php'; ?>
 				<?php endif; ?>
 
+				<?php // if errors found, show errors ?>
 				<?php if (count($errors)): ?>
 					<?php //print_r($errors); ?>
 				<?php endif; ?>
