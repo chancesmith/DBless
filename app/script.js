@@ -72,7 +72,6 @@ dbless.service('mainController', function ($http) {
     	if (job.id == null) {
             //if this is new job, add it in jobs array
             job.id = generateUUID();
-            job.order = 0;
             jobs.push(job);
             // console.log('New job');
         } else {

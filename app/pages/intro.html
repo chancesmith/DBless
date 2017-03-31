@@ -5,15 +5,15 @@
 			<form class="well" ng-submit="saveJob()">
 				<div class="form-group">
 					<label>Title*</label>
-					<input type="text" class="form-control" name="name" ng-model="newjob.name" required/>
+					<input type="text" class="form-control" name="title" ng-model="newjob.title" required/>
 				</div>
 				<div class="form-group">
 					<label>Responsibilities</label>
-					<input type="text" class="form-control" name="email" ng-model="newjob.email" />
+					<input type="text" class="form-control" name="responsibilities" ng-model="newjob.responsibilities" />
 				</div>
 				<div class="form-group">
 					<label>Description</label>
-					<textarea class="form-control" name="phone" ng-model="newjob.phone"></textarea>
+					<textarea class="form-control" name="description" ng-model="newjob.description"></textarea>
 				</div>
 				<br/>
 				<input type="hidden" ng-model="newjob.id" />
@@ -33,9 +33,9 @@
 				</thead>
 				<tbody ui-sortable="{ 'ui-floating': true,'update': updateOrder() }" ng-model="jobs">
 					<tr ng-hide="!jobs.length" ng-repeat="job in jobs" class="item" style="cursor: move;">
-						<td>{{ job.name }}</td>
-						<td>{{ job.email }}</td>
-						<td>{{ job.phone }}</td>
+						<td>{{ job.title }}</td>
+						<td>{{ job.responsibilities }}</td>
+						<td>{{ job.description }}</td>
 						<td> <a href="javascript:void(0)" ng-click="edit(job.id)"><i class="fa fa-pencil fa-lg success"></i></a><!--<a href="javascript:void(0)" ng-click="duplicate(job.id)">dupe</a> --> &nbsp;<a href="javascript:void(0)" ng-click="delete(job.id)"><i class="fa fa-trash fa-lg error"></i></a>
 
 						</td>
