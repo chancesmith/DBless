@@ -5,9 +5,14 @@
     "description":"As MoA, you will be...",
     "location":"Jackson, TN",
     "summary":"This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company. This company is in SUCH industry and is a Forbes 500 company.",
-    "benefits":"$150k/yr\nfull health and dental\n4 weeks vacay",
+    "benefits":[
+      "$150k/yr",
+      "full health and dental",
+      "4 weeks vacay",
+      "something great here"
+    ],
     "slug":"master-of-awesome-jackson-tn-2017-2",
-    "updated_at":"2017-03-31T20:21:08.783Z",
+    "updated_at":"2017-03-31T20:46:06.101Z",
     "created_at":"2017-03-31T20:17:26.350Z"
   },
   {
@@ -69,5 +74,20 @@
     "id":"7c80ff05-1db3-4c9b-9c80-f84720cfac2c",
     "created_at":"2017-03-31T20:17:26.350Z",
     "location":"asdf"
+  },
+  {
+    "title":"new job title here",
+    "location":"Jackson, TN",
+    "summary":"lorem ipsom",
+    "benefits":[
+      "lorem ipsom",
+      "lorem ipsom",
+      "lorem ipsomlorem ipsom"
+    ],
+    "description":"lorem ipsom",
+    "slug":"new-job-title-here-jackson-tn-2017-2",
+    "updated_at":"2017-03-31T20:46:45.596Z",
+    "id":"fc03f2a0-4688-453e-92f4-d20de451dc33",
+    "created_at":"2017-03-31T20:46:45.596Z"
   }
 ]
