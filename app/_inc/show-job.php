@@ -9,7 +9,7 @@
 			<p>Summary: <?php echo $job['summary']; ?></p>
 		<?php endif; ?>
 		<?php if(isset($job['benefits'])): ?>
-			<p>Benefits:</p>
+			<p>Benefits &amp; Requirements:</p>
 			<?php echo ulLiBootstrapArray($job['benefits']); ?>	
 		<?php endif; ?>
 		<?php if(isset($job['description'])): ?>

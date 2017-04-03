@@ -55,7 +55,7 @@ dbless.service('mainController', function ($http) {
     function updateJobsJSONFile(jobsJSON){
         $http({
           method: 'POST',
-          url: 'update-json.php',
+          url: '_inc/update-json.php',
           data: jobs
         }).then(function successCallback(response) {
             // this callback will be called asynchronously
